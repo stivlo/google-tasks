@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">       
+    
+    <!-- Implements org.obliquid.tasks.interfaces.SessionStore -->
+    <bean id="sessionStore" class="org.obliquid.tasks.model.SessionStoreImpl" scope="session">
+        <aop:scoped-proxy/>
+    </bean>
+        
+    <!--  Implements com.google.api.client.http.HttpTransport -->
+    <bean id="transport" class="com.google.api.client.http.javanet.NetHttpTransport"/>
+       
+    <!--  Implements com.google.api.client.json.JsonFactory --> 
+    <bean id="jsonFactory" class="com.google.api.client.json.jackson.JacksonFactory"/>
+        
+    <!-- Implements org.obliquid.tasks.interfaces.UrlShortener -->
+    <bean id="urlShortener" class="org.obliquid.tasks.model.UrlShortenerImpl"/>
+    
+</beans>

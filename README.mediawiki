@@ -1,0 +1,11 @@
+= Google Tasks =
+
+Playing with Google Tasks API, at the moment I've implemented OAuth 2.
+
+To configure the application, copy src/main/webapp/WEB-INF/app-config-template.xml
+to src/main/webapp/WEB-INF/app-config.xml and customize Google API Client Id,
+Google API Secret and callback URL within the application pointing to
+<app-context>/auth-response.
+
+Build with maven from command line or using m2eclipse plugin.
+

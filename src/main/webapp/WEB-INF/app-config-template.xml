@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+
+    <!--  Implements org.obliquid.tasks.interfaces.Authorizer -->
+    <bean id="authorizer" class="org.obliquid.tasks.model.OAuth2Authorizer">
+         
+         <!-- Google API clientId -->
+         <constructor-arg value="Your Google API clientId"/>
+         <!-- Google API client secret -->
+         <constructor-arg value="Your Google API client Secret"/>
+         <!-- callbackUrl (or urn:ietf:wg:oauth:2.0:oob) -->
+         <constructor-arg value="A callback URL, for instance http://localhost:8080/tasks/auth-response"/>
+         
+         <!-- scope, list of space separated URLs of apps to authorize -->
+         <constructor-arg value="https://www.googleapis.com/auth/urlshortener"/>
+         <property name="transport"><ref bean="transport"/></property>
+         <property name="jsonFactory"><ref bean="jsonFactory"/></property>
+    </bean>
+    
+</beans>

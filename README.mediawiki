@@ -9,3 +9,4 @@ Google API Secret and callback URL within the application pointing to
 
 Build with maven from command line or using m2eclipse plugin.
 
+OAuth2 example program http://code.google.com/p/google-api-java-client/wiki/OAuth2Draft10
